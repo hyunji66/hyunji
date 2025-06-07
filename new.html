@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            background-color: rgb(231, 227, 231);
+        }
+
+        #round1 {
+            border-radius: 10px;
+            background: rgb(255, 248, 249);
+            width: 400px;
+            padding: 15px;
+            margin-left: 5cm; /* 왼쪽에서 5cm 띄우기 */
+        }
+
+        #id input:focus {
+            font-size: 120%;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            width: 90px;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        .form-row input,
+        .form-row select {
+            flex: 1;
+        }
+
+        .button-row {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="round1">
+        <h3>회원가입</h3>
+        <hr>
+        <form>
+            <div class="form-row">
+                <label>이름 :</label>
+                <input type="text" value="">
+            </div>
+            <div class="form-row">
+                <label>생년월일:</label>
+                <input type="date">
+            </div>
+            <div class="form-row">
+                <label>성별:</label>
+                <input type="radio" name="se" value="">여자
+                <input type="radio" name="se" value="">남자
+            </div>
+            <div class="form-row">
+                <label>연락처 :</label>
+                <input type="text" value="">
+                <span>통신사</span>
+                <select name="kk">
+                    <option value="1">SKT</option>
+                    <option value="2">KT</option>
+                    <option value="3">LG</option>
+                    <option value="4">알뜰폰</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>이메일 :</label>
+                <input type="email">
+            </div>
+        </form>
+        <form id="id">
+            <div class="form-row">
+                <label>아이디 :</label>
+                <input type="text" size="20" value="">
+            </div>
+            <div class="form-row">
+                <label>비밀번호 :</label>
+                <input type="password" size="20" value="">
+            </div>
+            <hr>
+            <div class="button-row">
+                <input type="submit" value="입력완료">
+                <input type="submit" value="전송">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
