@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            background-color: rgb(231, 227, 231);
+        }
+        #round1 {
+            border-radius: 10px;
+            background: rgb(255, 248, 249);
+            width: 400px;
+            padding: 15px;
+            margin-left: 1cm;
+        }
+        .form-label {
+            display: inline-block;
+            width: 70px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .form-row {
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+            margin-left: 5px;
+            width: 180px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            font-size: 110%;
+        }
+        .btn-row {
+            margin-top: 15px;
+            text-align: center;
+        }
+        hr {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="round1">
+        <h3>회원가입</h3>
+        <hr>
+        <form id="signupForm">
+            <div class="form-row">
+                <span class="form-label">이름</span>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="form-row">
+                <span class="form-label">생년월일</span>
+                <input type="date" id="birth">
+            </div>
+            <div class="form-row">
+                <span class="form-label">성별</span>
+                <input type="radio" name="gender" value="여자">여자
+                <input type="radio" name="gender" value="남자">남자
+            </div>
+            <div class="form-row">
+                <span class="form-label">나이</span>
+                <input type="text" id="age" readonly style="background:#eee;">
+            </div>
+            <div class="form-row">
+                <span class="form-label">연락처</span>
+                <span style="display: inline-flex; align-items: center;">
+                    <input type="text" name="phone" id="phone" style="width: 110px;">
+                    <select name="kk" id="carrier" style="margin-left:8px; width:65px;">
+                        <option value="SKT">SKT</option>
+                        <option value="KT">KT</option>
+                        <option value="LG">LG</option>
+                        <option value="알뜰폰">알뜰폰</option>
+                    </select>
+                </span>
+            </div>
+            <div class="form-row">
+                <span class="form-label">이메일</span>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="form-row">
+                <span class="form-label">아이디</span>
+                <input type="text" size="20" name="userid" id="userid">
+            </div>
+            <div class="form-row">
+                <span class="form-label">비밀번호</span>
+                <input type="password" size="20" name="pw" id="pw">
+            </div>
+            <hr>
+            <div class="btn-row">
+                <input type="submit" value="입력완료(전송)">
+                <input type="reset" value="초기화">
+            </div>
+        </form>
+    </div>
+    <script>
+        // 생년월일 입력 시 나이계산
+        document.getElementById('birth').addEventListener('change', function() {
+            var birth = this.value;
+            if (birth) {
+                var today = new Date();
+                var birthDate = new Date(birth);
+                var age = today.getFullYear() - birthDate.getFullYear();
+                var m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                document.getElementById('age').value = age;
+            } else {
+                document.getElementById('age').value = '';
+            }
+        });
+
+        // 폼 전송 시 팝업으로 정보 출력
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 폼 실제 제출 막기
+            var name = document.getElementById('name').value;
+            var birth = document.getElementById('birth').value;
+            var genderInput = document.querySelector('input[name="gender"]:checked');
+            var gender = genderInput ? genderInput.value : '';
+            var age = document.getElementById('age').value;
+            var phone = document.getElementById('phone').value;
+            var carrier = document.getElementById('carrier').value;
+            var email = document.getElementById('email').value;
+            var userid = document.getElementById('userid').value;
+            var pw = document.getElementById('pw').value;
+
+            var msg = "회원가입 정보\n";
+            msg += "이름: " + name + "\n";
+            msg += "생년월일: " + birth + "\n";
+            msg += "성별: " + gender + "\n";
+            msg += "나이: " + age + "\n";
+            msg += "연락처: " + phone + " (" + carrier + ")\n";
+            msg += "이메일: " + email + "\n";
+            msg += "아이디: " + userid + "\n";
+            msg += "비밀번호: " + pw;
+
+            alert(msg);
+        });
+    </script>
+</body>
+</html>

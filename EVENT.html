@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 목록</title>
+    <style>
+      body {
+        background-color: rgb(236, 236, 236);
+      }
+      .box {
+        border-radius: 16px;
+        background-color: rgb(241, 200, 208);
+        padding: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    <script>
+      let width = 1; // 테두리 두께를 1로 시작
+      function wheel(e, obj){
+        if(e.deltaY > 0){
+          width--;
+          if(width < 1) width = 1; // 최소 1
+        } else { //휘를 위로 굴릴때
+          width++;
+        }
+        obj.style.borderStyle = 'ridge';
+        obj.style.borderWidth = width + "px";
+      }
+    </script>
+</head>
+<body onload="alert('이 페이지는 웹프로그래밍 과제의 이벤트 확인 페이지 입니다. \n이벤트 사용목록을 확인해주세요.')">
+  <div class="container">
+    <div class="box" style="width: 460px; height: 400px;">
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="font-weight: bold;"> ❣️이벤트 목록❣️</li><br>
+        <li onmouseover="this.style.backgroundColor='white';"
+            onmouseout="this.style.backgroundColor='';">
+          1. 팔로우시 추첨을 통해 선물을 드려요!
+        </li>
+        <li>2. 퀴즈를 맞추시면 추첨을 통해 기프트콘 증정!! </li>
+          <!-- 마우스 커서가 객체 영역 안으로 들어가거나 벗어나는 순간 -->
+        <li onmouseover="this.style.backgroundColor='white';" 
+            onmouseout="this.style.backgroundColor='';" > 
+          3. 함께 하고 싶은 친구를 댓글로 태그하면, 두 분 모두에게 선물 증정! 
+        </li>
+        <li onwheel="wheel(event,this)"
+            style="border: 1px ridge rgb(246, 239, 240);">
+          4. 회원가입시 할인 쿠폰 증정!
+        </li><br>
+        <button onclick="f()">이벤트 사용 목록</button>
+        <script>
+          function f(){ alert('1. onmouseover\n2. onmouseout \n3. onclick \n4. onload \n5. onwheel \n\n5가지를 사용했습니다.');}
+        </script>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
