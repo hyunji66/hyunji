@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <style>
+        body {
+            background-color: rgb(209, 245, 248);
+            margin-left: 180px;
+        }
+        #round1 {
+            border-radius: 20px;
+            background: rgb(255, 255, 255);
+            width: 500px;
+            height: 120px;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+            display: block;
+            text-decoration: none;
+        }
+        #menubar {
+            background: rgb(255, 167, 214);
+            width: 95px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        #menubar ul {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #menubar ul li {
+            display: block;
+            list-style-type: none;
+            padding: 20px 0;
+            text-align: center;
+        }
+        #menubar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        #menubar ul li a:hover {
+            color: rgb(64, 41, 80);
+        }
+    </style>
+</head>
+<body>
+    <nav id="menubar">
+        <ul>
+            <li><a href="#">★</a></li>
+            <li><a href="index.html">자기소개서</a></li>
+            <li><a href="회원가입.html">회원가입</a></li>
+            <li><a href="EVENT.html">이벤트목록</a></li>
+            <li><a href="https://www.hansung.ac.kr/sites/hansung/index.do">★</a></li>
+            <li><a href="#">★</a></li>
+        </ul>
+    </nav>
+
+    <div style="margin-top: 20px">
+        <p id="round1">
+            <br>
+            웹 프로그래밍 기말고사 과제 페이지 입니다.<br>
+            상상부기를 클릭시 자기소개서 페이지로 이동됩니다.
+            <br>
+        </p>
+        <a href="index.html">
+            <img src="상상부기.png" alt="" width="350" height="350">
+        </a>
+    </div>
+</body>
+</html>
